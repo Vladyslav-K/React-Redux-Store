@@ -1,2 +1,5 @@
-import WithKahonStoreService from './with-kahon-service'
-export default WithKahonStoreService
+import withKahonsService from './with-kahons-service';
+
+export {
+  withKahonsService
+};

@@ -1,18 +1,19 @@
+
 const initialState = {
   kahons: []
-}
+};
 
 const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'KAHONS_LOADED':
       return {
-        kahons: action.payload
-      }
+        kahons: action.value
+      };
+
     default:
-      return state
+      return state;
   }
+};
 
-}
-
-export default reducer
+export default reducer;

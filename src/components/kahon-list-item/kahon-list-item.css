@@ -1,0 +1,30 @@
+.kahon-list-item {
+  display: flex;
+  margin: 15px 0;
+}
+
+.kahon-list-item .kahon-cover {
+  flex-shrink: 0;
+  width: 150px;
+  margin-right: 30px;
+}
+
+.kahon-list-item .kahon-cover img {
+  max-width: 100%;
+}
+
+.kahon-list-item .kahon-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  align-items: flex-start;
+}
+
+.kahon-list-item .kahon-details .kahon-title {
+  font-size: 1.3rem;
+}
+
+.kahon-list-item .kahon-details .kahon-price {
+  font-size: 1.3rem;
+}
