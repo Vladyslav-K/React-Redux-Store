@@ -34,7 +34,23 @@ const kahonAddedToCart = (kahonId) => {
   };
 };
 
+const kahonRemovedFromCart = (kahonId) => {
+  return {
+    type: 'KAHON_REMOVED_FROM_CART',
+    payload: kahonId
+  };
+};
+
+const allKahonsRemovedFromCart = (kahonId) => {
+  return {
+    type: 'ALL_KAHONS_REMOVED_FROM_CART',
+    payload: kahonId
+  };
+};
+
 export {
   fetchBooks,
-  kahonAddedToCart
+  kahonAddedToCart,
+  kahonRemovedFromCart,
+  allKahonsRemovedFromCart
 };

@@ -53,7 +53,7 @@ class KahonListContainer extends Component {
 
 
 
-const mapStateToProps = ({ kahons, loading, error }) => {
+const mapStateToProps = ({ kahonList: { kahons, loading, error } }) => {
   return { kahons, loading, error };
 };
 
