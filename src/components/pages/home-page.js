@@ -1,12 +1,10 @@
 import React from 'react';
-import KahonList from '../kahon-list';
-import ShoppingCartTable from '../shopping-cart-table/shopping-cart-table';
+import CajonList from '../cajon-list';
 
 const HomePage = () => {
   return (
     <div>
-      <KahonList />
-      <ShoppingCartTable />
+      <CajonList />
     </div>
   );
 };

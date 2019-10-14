@@ -1,0 +1,13 @@
+@media all and (max-width: 1920px) {
+  .cajon-list {
+    list-style: none;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .cajon-list {
+    list-style: none;
+    padding: 0%;
+  }
+}
+

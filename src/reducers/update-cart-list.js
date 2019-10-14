@@ -21,36 +21,45 @@ const updateCartItems = (cartItems, item, index) => {
   ];
 };
 
-const updateCartItem = (kahon, item = {}, amount) => {
+const updateCartItem = (cajon, item = {}, amount) => {
 
   const {
-    id = kahon.id,
-    title = kahon.title,
+    id = cajon.id,
+    title = cajon.title,
     count = 0,
-    total = 0
+    total = 0,
   } = item;
 
   return {
     id,
     title,
     count: count + amount,
-    total: total + amount * kahon.price
+    total: total + amount * cajon.price
   };
 };
 
-const updateOrder = (state, kahonId, amount) => {
+const updateOrder = (state, cajonId, amount, itemTotal) => {
 
-  const { kahonList: { kahons }, cartList: { cartItems } } = state;
+  const { cajonList: { cajons }, cartList: { cartItems, orderTotal } } = state;
 
-  const kahon = kahons.find(({ id }) => id === kahonId);
-  const itemIndex = cartItems.findIndex(({ id }) => id === kahonId);
+  const cajon = cajons.find(({ id }) => id === cajonId);
+  const itemIndex = cartItems.findIndex(({ id }) => id === cajonId);
   const item = cartItems[itemIndex];
+  const newItem = updateCartItem(cajon, item, amount);
+  let sum = 0;
+  if (amount === -1) {
+    sum = orderTotal - cajon.price
+  } else if (amount === 1) {
+    sum = cajon.price + orderTotal
+  } else {
+    sum = orderTotal - itemTotal
+  }
 
-  const newItem = updateCartItem(kahon, item, amount);
   return {
-    orderTotal: 0,
+    orderTotal: sum,
     cartItems: updateCartItems(cartItems, newItem, itemIndex)
   };
+
 };
 
 const updateCartList = (state, action) => {
@@ -62,17 +71,18 @@ const updateCartList = (state, action) => {
     };
   };
 
+
   switch (action.type) {
 
-    case 'KAHON_ADDED_TO_CART':
+    case 'CAJON_ADDED_TO_CART':
       return updateOrder(state, action.payload, 1);
 
-    case 'KAHON_REMOVED_FROM_CART':
+    case 'CAJON_REMOVED_FROM_CART':
       return updateOrder(state, action.payload, -1);
 
-    case 'ALL_KAHONS_REMOVED_FROM_CART':
+    case 'ALL_CAJONS_REMOVED_FROM_CART':
       const item = state.cartList.cartItems.find(({ id }) => id === action.payload);
-      return updateOrder(state, action.payload, -item.count);
+      return updateOrder(state, action.payload, -item.count, item.total);
 
     default:
       return state.cartList;

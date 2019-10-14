@@ -1,8 +1,8 @@
-const updateKahonList = (state, action) => {
+const updateCajonList = (state, action) => {
 
   if (state === undefined) {
     return {
-      kahons: [],
+      cajons: [],
       loading: true,
       error: null,
     };
@@ -10,30 +10,30 @@ const updateKahonList = (state, action) => {
 
   switch (action.type) {
 
-    case 'FETCH_KAHONS_REQUEST':
+    case 'FETCH_CAJONS_REQUEST':
       return {
-        kahons: [],
+        cajons: [],
         loading: true,
         error: null
       };
 
-    case 'FETCH_KAHONS_SUCCESS':
+    case 'FETCH_CAJONS_SUCCESS':
       return {
-        kahons: action.payload,
+        cajons: action.payload,
         loading: false,
         error: null
       };
 
-    case 'FETCH_KAHONS_FAILURE':
+    case 'FETCH_CAJONS_FAILURE':
       return {
-        kahons: [],
+        cajons: [],
         loading: false,
         error: action.payload
       };
 
     default:
-      return state.kahonList;
+      return state.cajonList;
   };
 };
 
-export default updateKahonList;
+export default updateCajonList;

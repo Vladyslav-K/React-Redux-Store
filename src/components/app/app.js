@@ -8,7 +8,7 @@ import './app.css';
 const App = () => {
   return (
     <main role="main" className="container" >
-      <Header itemsNum={4} total={4000} />
+      <Header />
       <Switch>
         <Route
           path="/"

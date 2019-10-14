@@ -1,56 +1,56 @@
-const kahonsRequested = () => {
+const cajonsRequested = () => {
   return {
-    type: 'FETCH_KAHONS_REQUEST'
+    type: 'FETCH_CAJONS_REQUEST'
   };
 };
 
-const kahonsLoaded = (newKahons) => {
+const cajonsLoaded = (newCajons) => {
   return {
-    type: 'FETCH_KAHONS_SUCCESS',
-    payload: newKahons
+    type: 'FETCH_CAJONS_SUCCESS',
+    payload: newCajons
   };
 };
 
 
 
-const kahonsError = (error) => {
+const cajonsError = (error) => {
   return {
-    type: 'FETCH_KAHONS_FAILURE',
+    type: 'FETCH_CAJONS_FAILURE',
     payload: error
   };
 };
 
-const fetchBooks = (kahonsService, dispatch) => () => {
-  dispatch(kahonsRequested());
-  kahonsService.getKahons()
-    .then((data) => dispatch(kahonsLoaded(data)))
-    .catch((error) => dispatch(kahonsError(error)));
+const fetchCajons = (cajonsService, dispatch) => () => {
+  dispatch(cajonsRequested());
+  cajonsService.getCajons()
+    .then((data) => dispatch(cajonsLoaded(data)))
+    .catch((error) => dispatch(cajonsError(error)));
 };
 
-const kahonAddedToCart = (kahonId) => {
+const cajonAddedToCart = (cajonId) => {
   return {
-    type: 'KAHON_ADDED_TO_CART',
-    payload: kahonId
+    type: 'CAJON_ADDED_TO_CART',
+    payload: cajonId
   };
 };
 
-const kahonRemovedFromCart = (kahonId) => {
+const cajonRemovedFromCart = (cajonId) => {
   return {
-    type: 'KAHON_REMOVED_FROM_CART',
-    payload: kahonId
+    type: 'CAJON_REMOVED_FROM_CART',
+    payload: cajonId
   };
 };
 
-const allKahonsRemovedFromCart = (kahonId) => {
+const allCajonsRemovedFromCart = (cajonId) => {
   return {
-    type: 'ALL_KAHONS_REMOVED_FROM_CART',
-    payload: kahonId
+    type: 'ALL_CAJONS_REMOVED_FROM_CART',
+    payload: cajonId
   };
 };
 
 export {
-  fetchBooks,
-  kahonAddedToCart,
-  kahonRemovedFromCart,
-  allKahonsRemovedFromCart
+  fetchCajons,
+  cajonAddedToCart,
+  cajonRemovedFromCart,
+  allCajonsRemovedFromCart
 };

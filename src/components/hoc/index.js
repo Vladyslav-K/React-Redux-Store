@@ -1,5 +1,5 @@
-import withKahonsService from './with-kahons-service';
+import withCajonsService from './with-cajons-service';
 
 export {
-  withKahonsService
+  withCajonsService
 };

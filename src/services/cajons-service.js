@@ -1,4 +1,4 @@
-export default class KahonsService {
+export default class CajonsService {
 
   data = [
     {
@@ -17,12 +17,10 @@ export default class KahonsService {
     }
   ];
 
-  getKahons() {
+  getCajons() {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.data)
-        reject(new Error('Something bad happened'))
-      }, 700);
+      resolve(this.data)
+      reject(new Error('Something bad happened'))
     });
   };
 };
