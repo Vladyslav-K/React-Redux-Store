@@ -1,35 +1,46 @@
 import React from 'react';
 import './header.css';
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const Header = ({ items, total }) => {
-  const itemsCount = items.map(item => item.count)
-  const count = itemsCount.reduce((accum, value) => accum + value, 0)
-
+const Header = () => {
   return (
-    <header className="shop-header row">
+    <>
+      <Container style={{ paddingBottom: '6rem' }}>
+        <Navbar bg="dark" variant="dark" fixed="top">
+          <Navbar.Collapse
+            className="justify-content-start"
+            style={{ paddingLeft: '10%' }}
+          >
+            <Navbar style={{ fontSize: 20 }}>
+              <Nav className="padding-left">
+                <LinkContainer to="/">
+                  <Nav.Link>
+                    Товары
+                </Nav.Link>
+                </LinkContainer>
+              </Nav>
+            </Navbar>
+          </Navbar.Collapse>
 
-      <Link to="/">
-        <div className="logo text-dark">Cajons Store</div>
-      </Link>
-
-      <Link to="/cart">
-        <div className="shopping-cart">
-          <i className="cart-icon fa fa-shopping-cart" />
-          {count} предмет(ов) в корзине на сумму ({total} грн.)
-        </div>
-      </Link>
-
-    </header>
+          <Navbar.Collapse
+            className="justify-content-end"
+            style={{ paddingRight: '10%' }}
+          >
+            <Navbar style={{ fontSize: 20 }}>
+              <Nav className="mr-auto">
+                <LinkContainer to="/cart">
+                  <Nav.Link>
+                    Корзина
+                </Nav.Link>
+                </LinkContainer>
+              </Nav>
+            </Navbar>
+          </Navbar.Collapse>
+        </Navbar>
+      </Container>
+    </>
   );
 };
 
-const mapStateToProps = ({ cartList: { cartItems, orderTotal } }) => {
-  return {
-    items: cartItems,
-    total: orderTotal
-  }
-}
-
-export default connect(mapStateToProps)(Header);
+export default Header;

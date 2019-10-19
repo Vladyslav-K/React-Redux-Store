@@ -28,13 +28,15 @@ const updateCartItem = (cajon, item = {}, amount) => {
     title = cajon.title,
     count = 0,
     total = 0,
+    img = cajon.coverImage,
   } = item;
 
   return {
     id,
     title,
+    img,
     count: count + amount,
-    total: total + amount * cajon.price
+    total: total + amount * cajon.price,
   };
 };
 
