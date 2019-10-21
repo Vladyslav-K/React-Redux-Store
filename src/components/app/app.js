@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { HomePage, CartPage } from '../pages';
+import { HomePage, CartPage, ShopPage } from '../pages';
 import Header from '../header';
 
 import './app.css';
@@ -19,8 +19,13 @@ const App = () => {
           path="/cart"
           component={CartPage}
         />
+
+        <Route
+          path="/shop"
+          component={ShopPage}
+        />
       </Switch>
-    </main>
+    </main >
   );
 };
 

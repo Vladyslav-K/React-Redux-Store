@@ -14,7 +14,7 @@ const CajonListItem = ({ cajon, onAddedToCart }) => {
             <Card.Body>
               <Card.Title> {title} </Card.Title>
               <Card.Text>  {model} </Card.Text>
-              <Card.Title> {price} грн. </Card.Title>
+              <Card.Title> {price} <i class="fa fa-hryvnia" fa-xs /> </Card.Title>
               <Button onClick={onAddedToCart} variant="dark" block> Купить </Button>
             </Card.Body>
           </Card>

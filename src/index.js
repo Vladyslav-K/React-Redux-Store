@@ -10,7 +10,7 @@ import ErrorBoundry from './components/error-boundry';
 import CajonsService from './services/cajons-service';
 import { CajonsServiceProvider } from './components/cajons-service-context';
 import store from './store';
-import firebaseConfig from '../firebaseConfig'
+import { firebaseConfig } from './utils/firebaseConfig'
 
 
 
