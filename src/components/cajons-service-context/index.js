@@ -1,9 +1,6 @@
 import {
   CajonsServiceProvider,
   CajonsServiceConsumer
-} from './cajons-service-context';
+} from "./cajons-service-context";
 
-export {
-  CajonsServiceProvider,
-  CajonsServiceConsumer
-};
+export { CajonsServiceProvider, CajonsServiceConsumer };

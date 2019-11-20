@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const {
   Provider: CajonsServiceProvider,
   Consumer: CajonsServiceConsumer
 } = React.createContext();
 
-export {
-  CajonsServiceProvider,
-  CajonsServiceConsumer
-};
+export { CajonsServiceProvider, CajonsServiceConsumer };
